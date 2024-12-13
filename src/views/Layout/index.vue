@@ -1,5 +1,6 @@
 <template>
   <el-container class="layout-container-demo">
+    <!-- 侧边栏菜单导航 -->
     <el-aside class="myMenu" :width="myMenuWidth">
       <el-scrollbar>
         <div class="adminMenu" v-show="showMenu">
@@ -113,11 +114,27 @@
               <!--COLLECT_INFO##el-menu-item##-->
             </el-sub-menu>
             <!--###el-sub-menu###-->
+            <el-sub-menu index="/AMEND_INFO">
+              <template #title>
+                <el-icon>
+                  <grid></grid>
+                </el-icon>
+                <span>修改信息</span>
+              </template>
+              <el-menu-item index="/AMEND_INFO/AMEND_INFO">
+                <el-icon>
+                  <location></location>
+                </el-icon>
+                <template #title>旅行团信息修改</template>
+              </el-menu-item>
+              <!--COLLECT_INFO##el-menu-item##-->
+            </el-sub-menu>
+            <!--###el-sub-menu###-->
 
           </el-menu>
         </div>
 
-        <!-- 根据权限组菜单 -->
+        <!-- 动态菜单，适用于权限控制 -->
         <div class="roleMenu" v-show="!showMenu">
           <el-menu :default-active="activeMenu" class="el-menu-vertical-demo" :collapse="isCollapse"
             background-color="#ffffff" text-color="rgb(22, 43, 100)" active-text-color="rgb(87, 202, 235)" router
@@ -153,6 +170,7 @@
     </el-aside>
 
     <el-container class="myContent">
+      <!-- 顶部导航栏 -->
       <el-header class="myHeader">
         <div v-show="!isExpand" class="expandDiv">
           <el-button class="expandBtn" @click="foldHandle()">
@@ -186,6 +204,7 @@
         </div>
       </el-header>
 
+      <!-- 主内容区域，使用路由 -->
       <el-main class="myMain">
         <div>
           <router-view></router-view>

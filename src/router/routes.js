@@ -107,6 +107,19 @@ const routers = [
                     },
                 ]
             },
+            {
+                name: '修改信息模块',
+                path: '/AMEND_INFO',
+                component: () => import('@/views/AMEND_INFO/index.vue'),
+                children: [
+                    //USER_INFO##路由-文件##
+                    {
+                        name: '修改信息',
+                        path: 'AMEND_INFO',
+                        component: () => import('@/views/AMEND_INFO/AMEND_INFO.vue')
+                    },
+                ]
+            },
         ]
     },
 ]
